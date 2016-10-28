@@ -1,4 +1,4 @@
-### Kafka Producer to Push Twitter Data (Part 2)
+### Kafka consumer to analyse tweets through Spark (Part 2)
 
 *Dan Dixey*
 
@@ -22,19 +22,8 @@ Part 1 and 2 should aleady be running but if not.
 3.  This project has been built using sbt assembly, so a .jar file has been generated that you can run with a one-liner. To run this execute the following command:
 
         $ cd TwitterKafkaProducer
-        $ java -jar target/scala-2.11/TwitterKafkaProducer-assembly-1.0.jar
+        $ java -jar target/scala-2.11/TwitterSparkSentiment-assembly-1.0.jar
         
-### Filtering currently and Kafka Queue Name
-
-Filters:
-
-      twitterStream.sample("en")
-      twitterStream.filter("data", "analytics", "brexit", "football", "trump", "rooney", "clinton", "russia", "usa",
-                           "python", "scala", "qbiz", "qgroup", "lloyds", "gsk", "oil", "pharma")
-                           
-Topic Name:
-                           
-      ScalaTwitter
                            
 ### Re-building the .jar file
 

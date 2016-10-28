@@ -24,8 +24,11 @@ val twitter4j = "4.0.5"
 assemblyMergeStrategy in assembly := {
   case PathList("org", "apache", "spark", "unused", "UnusedStubClass.class") => MergeStrategy.first
   case PathList("META-INF", xs@_*) => MergeStrategy.discard
-  case x => (assemblyMergeStrategy in assembly).value(x)
+  case x => MergeStrategy.first
+  //case x => (assemblyMergeStrategy in assembly).value(x)
 }
+
+
 
 libraryDependencies ++= Seq(
   // Configuration Files
@@ -58,6 +61,8 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion
 
 )
+
+mainClass in assembly := Some("org.SentimentSpark.KafkaConsumerApp")
 
 lazy val defaultSettings = Defaults.coreDefaultSettings ++ Seq(
   resolvers += "Typesafe Repo" at "http://repo.typesafe.com/typesafe/releases/"
